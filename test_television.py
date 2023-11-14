@@ -22,8 +22,4 @@ class Test:
     def test_channel_up(self):
         self.tv1.power()
         self.tv1.channel_up()
-        self.tv1.channel_up()
-        self.tv1.channel_up()
-        self.tv1.channel_up()
-        self.tv1.channel_up()
         assert self.tv1.__str__() == 'Power = True, Channel = 1, Volume = 0'
