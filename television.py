@@ -17,24 +17,25 @@ class Television:
             self.__status = False
 
     def mute(self) -> None:
-        if not self.__muted:
-            self.__muted = True
-        else:
-            self.__muted = False
+        if self.__status:
+            if not self.__muted:
+                self.__muted = True
+            else:
+                self.__muted = False
 
     def channel_up(self):
         if self.__status:
-            if self.__channel <= Television.MAX_VOLUME:
-                self.__channel += 1
-            else:
+            if self.__channel == Television.MAX_VOLUME:
                 self.__channel = Television.MIN_CHANNEL
+            else:
+                self.__channel += 1
 
     def channel_down(self):
         if self.__status:
-            if self.__channel >= Television.MIN_VOLUME:
-                self.__channel -= 1
+            if self.__channel == Television.MIN_CHANNEL:
+                self.__channel = Television.MAX_CHANNEL
             else:
-                self.__channel = Television.MAX_VOLUME
+                self.__channel -= 1
 
     def volume_up(self) -> None:
         if self.__status:
